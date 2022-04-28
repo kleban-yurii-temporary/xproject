@@ -1,0 +1,8 @@
+
+.vs
+src/XProject.Core/bin
+src/XProject.Core/obj
+src/XProject.Respositories/bin
+src/XProject.Respositories/obj
+src/XProject.WebApp/bin
+src/XProject.WebApp/obj
