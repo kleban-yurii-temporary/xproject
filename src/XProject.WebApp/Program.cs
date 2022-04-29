@@ -1,7 +1,10 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using XProject.Core;
 using XProject.WebApp.Data;
+using XProject.Repositories;
+using AutoMapper;
+using XProject.Repositories.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,18 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<DataInitRepository>();
+/*
+var mapperConfig = new MapperConfiguration(c => {
+    c.AddProfile<AppMapperProfile>();
+});
+builder.Services.AddSingleton<IMapper>(m => mapperConfig.CreateMapper());
+*/
+
+// Змінено
+// Додано рефренс на пакет AutoMapper DependencyInjection / Не зрозумів Антоніну! Потім згадав
+builder.Services.AddAutoMapper(typeof(AppMapperProfile).Assembly);
 
 var app = builder.Build();
 
@@ -40,6 +55,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();

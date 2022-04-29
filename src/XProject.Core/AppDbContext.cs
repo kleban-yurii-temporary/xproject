@@ -16,5 +16,7 @@ namespace XProject.WebApp.Data
             builder.Seed();
             base.OnModelCreating(builder);
         }
+
+        public DbSet<LossesEquipmentDaily> LossesEquipment { get; set; }
     }
 }
