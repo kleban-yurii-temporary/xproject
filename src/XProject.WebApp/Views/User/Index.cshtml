@@ -1,0 +1,36 @@
+﻿@using XProject.Repositories.Models
+@model List<AppUserViewModel>
+
+<div class="float-end">
+    <a href="/user/create" class="btn btn-outline-primary">Додати користувача</a>
+</div>
+<h1>Список наявних користувачів</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Confirmed</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+            <td>@(u.LastName??"") @(u.FirstName??"")</td>
+            <td>@u.Email</td>
+            <td><input class="form-check-input" @(u.IsEmailConfirmed?"checked":"")  type="checkbox" disabled></td>
+            <td>@string.Join(", ", u.Roles)</td>
+            <td>
+                <a href="/user/edit/@u.Id">Edit</a>
+                <a href="/user/remove/@u.Id">Remove</a>
+            </td>
+        </tr>
+        }
+        
+    </tbody>
+</table>

@@ -14,11 +14,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddDefaultIdentity<AppUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 5;
+}).AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<DataInitRepository>();
+builder.Services.AddScoped<UserRoleRepository>();
+builder.Services.AddScoped<UserManager<AppUser>>();
+builder.Services.AddScoped<RoleManager<IdentityRole>>();
 /*
 var mapperConfig = new MapperConfiguration(c => {
     c.AddProfile<AppMapperProfile>();
