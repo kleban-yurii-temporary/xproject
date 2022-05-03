@@ -25,40 +25,22 @@ namespace XProject.Repositories
         }
         public async Task<IEnumerable<LossesReadDto>> ParseDataFile(string path)
         {
-           /* var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+           var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
                 Delimiter = ","
-            };*/
+            };
 
             List<LossesReadDto> records = new List<LossesReadDto>();
 
-           /* using (var reader = new StreamReader(path))
+            using (var reader = new StreamReader(path))
             using (var csv = new CsvReader(reader, config))
             {
                 records = csv.GetRecords<LossesReadDto>().ToList();
-            }*/
+            }
 
-            //  var losses = _mapper.Map<IEnumerable<LossesEquipmentDaily>>(records.ToList());
-
-           // var losses = records.Select(x => new LossesEquipmentDaily
-          //  {
-                /*Aircraft = x.Aircraft,
-                Anti_aircraft_warfare = x.Anti_aircraft_warfare,
-                APC = x.APC,
-                Date = x.Date,
-                Day = x.Day,
-                Drone = x.Drone,    
-                Field_artillery = x.Field_artillery,
-                Fuel_tank = x.Fuel_tank,
-                Helicopter = x.Helicopter,
-                Military_auto = x.Military_auto,
-                Mobile_SRBM_system = x.Mobile_SRBM_system,
-                MRL = x.MRL,
-                Naval_ship = x.Naval_ship,
-                Special_equipment = x.Special_equipment,
-                Tank = x.Tank*/
-           // });
+             var losses = _mapper.Map<IEnumerable<LossesEquipmentDaily>>(records.ToList());
+                       
 
             if (_ctx.LossesEquipment.Any())
             {
@@ -66,15 +48,8 @@ namespace XProject.Repositories
                 await _ctx.SaveChangesAsync();
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                await _ctx.LossesEquipment.AddAsync(new LossesEquipmentDaily
-                {
-                    Date = DateTime.Now                    
-                });
-                //await _ctx.LossesEquipment.AddRangeAsync(losses);
-            }
-            await _ctx.SaveChangesAsync();
+            _ctx.LossesEquipment.AddRange(losses);
+            _ctx.SaveChanges();
 
             return records;
         }
