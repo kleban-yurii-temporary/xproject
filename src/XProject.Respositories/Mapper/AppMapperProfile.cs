@@ -16,7 +16,7 @@ namespace XProject.Repositories.Mapper
             //CreateMap<LossesReadDto, LossesEquipmentDaily>()
             //    .AddTransform<int?>(num => num ?? 0).ReverseMap();
 
-            CreateMap<LossesReadDto, LossesEquipmentDaily>()
+           /* CreateMap<LossesReadDto, LossesEquipmentDaily>()
                 .ForMember(LossesEquipmentDaily => LossesEquipmentDaily.Date,
                     opt => opt.MapFrom(LossesReadDto => LossesReadDto.Date))
 
@@ -60,7 +60,7 @@ namespace XProject.Repositories.Mapper
                     opt => opt.MapFrom(LossesReadDto => LossesReadDto.Special_equipment))
 
                 .ForMember(LossesEquipmentDaily => LossesEquipmentDaily.Mobile_SRBM_system,
-                    opt => opt.MapFrom(LossesReadDto => LossesReadDto.Mobile_SRBM_system));
+                    opt => opt.MapFrom(LossesReadDto => LossesReadDto.Mobile_SRBM_system));*/
         }
     }
 }

@@ -13,22 +13,20 @@ namespace XProject.Core
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime? Date { get; set; }
-        public int? Day { get; set; }
-        public int? Aircraft { get; set; }
-        public int? Helicopter { get; set; }
-        public int? Tank { get; set; }
-        public int? APC { get; set; }
-        public int? Field_artillery { get; set; }
-        public int? MRL { get; set; }
-        public int? Military_auto { get; set; }
-        public int? Fuel_tank { get; set; }
-        public int? Drone { get; set; }
-        public int? Naval_ship { get; set; }
-        public int? Anti_aircraft_warfare { get; set; }
-        public int? Special_equipment { get; set; }
-        public int? Mobile_SRBM_system { get; set; }
+        public DateTime Date { get; set; } = new DateTime(2000, 1, 1);
+        public int Day { get; set; } = 0;
+        public int Aircraft { get; set; } = 0;
+        public int Helicopter { get; set; } = 0;
+        public int Tank { get; set; } = 0;
+        public int APC { get; set; } = 0;
+        public int Field_artillery { get; set; } = 0;
+        public int MRL { get; set; } = 0;
+        public int Military_auto { get; set; } = 0;
+        public int Fuel_tank { get; set; } = 0;
+        public int Drone { get; set; } = 0;
+        public int Naval_ship { get; set; } = 0;
+        public int Anti_aircraft_warfare { get; set; } = 0;
+        public int Special_equipment { get; set; } = 0;
+        public int Mobile_SRBM_system { get; set; } = 0;
     }
 }
