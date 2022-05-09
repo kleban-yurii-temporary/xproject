@@ -49,6 +49,11 @@ namespace XProject.Repositories
             return await _ctx.Roles.ToListAsync();
         }
 
+        public async Task<int> IsConfirmed(string id)
+        {
+            return (await _ctx.Users.FirstAsync(x=> x.Id == id)).EmailConfirmed ? 1 : 0;
+        }
+
         public async Task UpdateAsync(AppUserViewModel model, string[] roles)
         {
             var user = _ctx.Users.Find(model.Id);
@@ -69,6 +74,8 @@ namespace XProject.Repositories
             if (user.EmailConfirmed != model.IsEmailConfirmed)
                 user.EmailConfirmed = model.IsEmailConfirmed;
 
+            var admRole = await _roleManager.FindByNameAsync("Admin");
+
             if((await _userManager.GetRolesAsync(user)).Any())
             {
                await _userManager.RemoveFromRolesAsync(user, await _userManager.GetRolesAsync(user));
@@ -78,6 +85,17 @@ namespace XProject.Repositories
             {
                 await _userManager.AddToRolesAsync(user, roles.ToList());
             }
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            var user = _ctx.Users.Find(id);
+
+            if ((await _userManager.GetRolesAsync(user)).Any())
+            {
+                await _userManager.RemoveFromRolesAsync(user, await _userManager.GetRolesAsync(user));
+            }
+            await _userManager.DeleteAsync(user);
         }
 
         public async Task<IEnumerable<AppUserViewModel>> GetAllWithRolesAsync()

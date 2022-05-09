@@ -27,6 +27,7 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<DataInitRepository>();
+builder.Services.AddScoped<LossesRepository>();
 builder.Services.AddScoped<UserRoleRepository>();
 builder.Services.AddScoped<UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();

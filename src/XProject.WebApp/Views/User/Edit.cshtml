@@ -61,5 +61,15 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css" />
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script>
+        $(function() {
+
+            $("#roles").select2();
+
+        })
+    </script>
 }
 

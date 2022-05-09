@@ -5,7 +5,7 @@ using XProject.Repositories.Models;
 
 namespace XProject.WebApp.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly UserRoleRepository _userRoleRepository;
@@ -30,9 +30,9 @@ namespace XProject.WebApp.Controllers
         public async Task<IActionResult> Create(AppUserCreateModel model)
         {
             if(ModelState.IsValid)
-            {
+            {                
                 var user = await _userRoleRepository.CreateAsync(model);
-                return RedirectToAction("Index", "User", new {id = user.Id});
+                return RedirectToAction("Edit", "User", new {id = user.Id});
             }
             return View(model);
         }
@@ -55,6 +55,18 @@ namespace XProject.WebApp.Controllers
             }
             ViewBag.Roles = await _userRoleRepository.GetRolesAsync();
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<int> CheckUser(string id)
+        {
+            return await _userRoleRepository.IsConfirmed(id);
+        }
+
+        [HttpDelete]
+        public async Task Delete(string id)
+        {
+            await _userRoleRepository.DeleteAsync(id);
         }
     }
 }

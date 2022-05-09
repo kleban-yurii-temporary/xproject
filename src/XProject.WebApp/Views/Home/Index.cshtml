@@ -1,8 +1,46 @@
-﻿@{
+﻿@using XProject.Repositories.Dtos
+@model LossesReadDto
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+
+    <div class="col-lg-2 mb-5">
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Дрони</div>
+                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Drone</h5></a>               
+            </div>            
+        </div>
+    </div>
+
+     <div class="col-lg-2 mb-5">
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Літаки</div>
+                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Aircraft</h5></a>               
+            </div>            
+        </div>
+    </div>
+
+     <div class="col-lg-2 mb-5">
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">ППО</div>
+                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Anti_aircraft_warfare</h5></a>               
+            </div>            
+        </div>
+    </div>
+
+    <div class="col-lg-2 mb-5">
+        <div class="card h-100 shadow border-0">
+            <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Гвинтокрили</div>
+                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Helicopter</h5></a>               
+            </div>            
+        </div>
+    </div>
+
 </div>
