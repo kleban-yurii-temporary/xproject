@@ -32,6 +32,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 builder.Services.AddScoped<UpdateRepository>();
 builder.Services.AddScoped<LossesRepository>();
+builder.Services.AddScoped<EqRepository>();
 builder.Services.AddScoped<UserRoleRepository>();
 builder.Services.AddScoped<UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();

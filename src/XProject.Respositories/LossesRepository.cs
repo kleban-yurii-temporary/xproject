@@ -22,15 +22,41 @@ namespace XProject.Repositories
             _ctx = ctx;
         }
 
-        public async Task<IEnumerable<DailyEquipmentLosses>> GetDataAsync()
+        public async Task<IEnumerable<DailyEquipmentLosses>> GetDataAsync(string? date = null)
         {
             var maxDate = _ctx.DailyLosses.Max(x => x.Date);
 
-            var data = _ctx.DailyLosses.Include(x=> x.EquipmentType).Where(x=> x.Date == maxDate).ToList();  
+            var data = _ctx.DailyLosses.Include(x=> x.EquipmentType).Where(x=> x.Date == maxDate).ToList();
+            var dataBefore = _ctx.DailyLosses.Include(x => x.EquipmentType).Where(x => x.Date == maxDate.AddDays(-1)).ToList();
+
+            for(int i = 0; i < data.Count; i++)
+            {
+                data[i].CountPlus = data[i].Count - dataBefore[i].Count;
+            }
 
             return data;
         }
 
+        public async Task<KeyValuePair<List<string>, List<int>>> GetMiniChartDataAsync(int id)
+        {           
+            var eqt = await _ctx.DailyLosses.Where(x=> x.EquipmentType.Id == id)
+                .OrderByDescending(x=> x.Date).Take(14)
+                .OrderBy(x=> x.Date).ToListAsync();
 
+            var data = new KeyValuePair<List<string>, List<int>>(
+                eqt.Select(x=> "d" + x.Date.ToString("ddMMyyyy")).ToList(),
+                eqt.Select(x=> x.Count).ToList());
+
+            return data;
+        }
+
+        public async Task<IEnumerable<DailyEquipmentLosses>> GetMiniChartDataAsync2(int id)
+        {
+            var data = await _ctx.DailyLosses.Where(x => x.EquipmentType.Id == id)
+                .OrderByDescending(x => x.Date).Take(14)
+                .OrderBy(x => x.Date).ToListAsync();
+
+            return data;
+        }
     }
 }

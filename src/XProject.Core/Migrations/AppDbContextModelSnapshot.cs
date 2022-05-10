@@ -51,15 +51,15 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fecb325f-b7c9-4523-a19e-98e6e449e4f6",
-                            ConcurrencyStamp = "fecb325f-b7c9-4523-a19e-98e6e449e4f6",
+                            Id = "c9274690-fa05-46d8-8294-b6552b80549b",
+                            ConcurrencyStamp = "c9274690-fa05-46d8-8294-b6552b80549b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "488471c8-6939-409f-a52b-f9b4020aeda9",
-                            ConcurrencyStamp = "488471c8-6939-409f-a52b-f9b4020aeda9",
+                            Id = "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54",
+                            ConcurrencyStamp = "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -156,18 +156,18 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
-                            RoleId = "fecb325f-b7c9-4523-a19e-98e6e449e4f6"
+                            UserId = "65920599-67ec-45ec-a8fc-0537c0b36d49",
+                            RoleId = "c9274690-fa05-46d8-8294-b6552b80549b"
                         },
                         new
                         {
-                            UserId = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
-                            RoleId = "488471c8-6939-409f-a52b-f9b4020aeda9"
+                            UserId = "65920599-67ec-45ec-a8fc-0537c0b36d49",
+                            RoleId = "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54"
                         },
                         new
                         {
-                            UserId = "3aae988b-ba2b-4123-bfeb-45c283ddc33b",
-                            RoleId = "488471c8-6939-409f-a52b-f9b4020aeda9"
+                            UserId = "89f1ba74-fba0-4b32-b933-1ae347968b0a",
+                            RoleId = "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54"
                         });
                 });
 
@@ -265,31 +265,31 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
+                            Id = "65920599-67ec-45ec-a8fc-0537c0b36d49",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1307563d-1e71-4bcc-aed0-67448f4ca400",
+                            ConcurrencyStamp = "fd15d5e5-5c2d-4d4c-b281-1be6703b4d8b",
                             Email = "admin@xproject.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN@XPROJECT.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEANuCmj//tCbH/ov6GdMQ3QwYpvgboxlehD4UH29tQbkuPlUMw2I2W9N0kihaUKBJg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGyH0O+Q21ixQL62tcE9OanXrSzibOCDQiB4WIA7lBl6kejSd/tKOjYVN6evkXZrzw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ff31d3f8-1f10-48ad-9469-0b9b13f445fd",
+                            SecurityStamp = "239734e8-deb4-489e-be48-4791062d1f66",
                             TwoFactorEnabled = false,
                             UserName = "admin@xproject.com"
                         },
                         new
                         {
-                            Id = "3aae988b-ba2b-4123-bfeb-45c283ddc33b",
+                            Id = "89f1ba74-fba0-4b32-b933-1ae347968b0a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b21719c0-493b-4804-8519-07ad6ff85ea6",
+                            ConcurrencyStamp = "0b40cf35-0d76-4f36-94ad-76bb2001a42e",
                             Email = "user@xproject.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER@XPROJECT.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDCM8zYjTM/yIJvU8Oo9LDSW2Y3lFmOnge3ORNOb7WZz14BIjI4wSL8a8dHMuT984Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJaSsi5ST2IPxDm/Mjm+SvZdYq6lxov/hTj4Asvbzh3v0hw0iHE4Y43VGFGIqpEUgA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "69284d0a-0bbe-46fa-afa5-3dc28d3ffc51",
+                            SecurityStamp = "17b45029-b131-4a73-b816-ca8221113827",
                             TwoFactorEnabled = false,
                             UserName = "user@xproject.com"
                         });
@@ -348,7 +348,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 1,
                             FileTitle = "aircraft",
-                            IconPath = "/img/icons/aircraft.png",
+                            IconPath = "Images\\eq\\aircraft.png",
                             Order = 1,
                             Title = "Літаки"
                         },
@@ -356,7 +356,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 2,
                             FileTitle = "helicopter",
-                            IconPath = "/img/icons/helicopter.png",
+                            IconPath = "Images\\eq\\helicopter.png",
                             Order = 2,
                             Title = "Гвинтокрили"
                         },
@@ -364,7 +364,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 3,
                             FileTitle = "drone",
-                            IconPath = "/img/icons/drone.png",
+                            IconPath = "Images\\eq\\drone.png",
                             Order = 3,
                             Title = "Дрони"
                         },
@@ -372,7 +372,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 4,
                             FileTitle = "anti-aircraft warfare",
-                            IconPath = "/img/icons/anti-aircraft-warfare.png",
+                            IconPath = "Images\\eq\\anti-aircraft-warfare.png",
                             Order = 5,
                             Title = "ППО"
                         },
@@ -380,7 +380,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 5,
                             FileTitle = "cruise missiles",
-                            IconPath = "/img/icons/cruise-missiles.png",
+                            IconPath = "Images\\eq\\cruise-missiles.png",
                             Order = 5,
                             Title = "Крилаті ракети"
                         },
@@ -388,7 +388,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 6,
                             FileTitle = "tank",
-                            IconPath = "/img/icons/tank.png",
+                            IconPath = "Images\\eq\\tank.png",
                             Order = 6,
                             Title = "Танки"
                         },
@@ -396,7 +396,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 7,
                             FileTitle = "APC",
-                            IconPath = "/img/icons/apc.png",
+                            IconPath = "Images\\eq\\apc.png",
                             Order = 7,
                             Title = "БТР"
                         },
@@ -404,7 +404,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 8,
                             FileTitle = "field artillery",
-                            IconPath = "/img/icons/field-artillery.png",
+                            IconPath = "Images\\eq\\field-artillery.png",
                             Order = 8,
                             Title = "Артилерія"
                         },
@@ -412,7 +412,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 9,
                             FileTitle = "MLP",
-                            IconPath = "/img/icons/mlr.png",
+                            IconPath = "Images\\eq\\mlr.png",
                             Order = 9,
                             Title = "РСЗВ"
                         },
@@ -420,7 +420,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 10,
                             FileTitle = "vehicles and fuel tanks",
-                            IconPath = "/img/icons/vehicles-and-fuel-tanks.png",
+                            IconPath = "Images\\eq\\vehicles-and-fuel-tanks.png",
                             Order = 10,
                             Title = "Техніка і цистерни з ПММ"
                         },
@@ -428,7 +428,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 11,
                             FileTitle = "naval ship",
-                            IconPath = "/img/icons/naval-ship.png",
+                            IconPath = "Images\\eq\\naval-ship.png",
                             Order = 11,
                             Title = "Морські кораблі"
                         },
@@ -436,7 +436,7 @@ namespace XProject.Core.Migrations
                         {
                             Id = 12,
                             FileTitle = "special equipment",
-                            IconPath = "/img/icons/special-equipment.png",
+                            IconPath = "Images\\eq\\special-equipment.png",
                             Order = 12,
                             Title = "Спец. обладнання"
                         });

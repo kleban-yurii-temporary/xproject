@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using CsvHelper;
-using CsvHelper.Configuration;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -135,6 +133,7 @@ namespace XProject.Repositories
             }
             else
             {
+                _ctx.Options.First(x => x.Key == "latest_update").Value = DateTime.Now.ToString("dd.MM.yyyy");
                 await _ctx.SaveChangesAsync();
 
             }

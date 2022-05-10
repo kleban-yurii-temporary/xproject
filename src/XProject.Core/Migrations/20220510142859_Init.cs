@@ -210,8 +210,8 @@ namespace XProject.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "488471c8-6939-409f-a52b-f9b4020aeda9", "488471c8-6939-409f-a52b-f9b4020aeda9", "User", "USER" },
-                    { "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "Admin", "ADMIN" }
+                    { "c9274690-fa05-46d8-8294-b6552b80549b", "c9274690-fa05-46d8-8294-b6552b80549b", "Admin", "ADMIN" },
+                    { "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54", "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -219,8 +219,8 @@ namespace XProject.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "3aae988b-ba2b-4123-bfeb-45c283ddc33b", 0, "b21719c0-493b-4804-8519-07ad6ff85ea6", "user@xproject.com", true, null, null, false, null, null, "USER@XPROJECT.COM", "AQAAAAEAACcQAAAAEDCM8zYjTM/yIJvU8Oo9LDSW2Y3lFmOnge3ORNOb7WZz14BIjI4wSL8a8dHMuT984Q==", null, false, "69284d0a-0bbe-46fa-afa5-3dc28d3ffc51", false, "user@xproject.com" },
-                    { "74158a1f-837b-498f-b7aa-cdd34e99ca64", 0, "1307563d-1e71-4bcc-aed0-67448f4ca400", "admin@xproject.com", true, null, null, false, null, null, "ADMIN@XPROJECT.COM", "AQAAAAEAACcQAAAAEANuCmj//tCbH/ov6GdMQ3QwYpvgboxlehD4UH29tQbkuPlUMw2I2W9N0kihaUKBJg==", null, false, "ff31d3f8-1f10-48ad-9469-0b9b13f445fd", false, "admin@xproject.com" }
+                    { "65920599-67ec-45ec-a8fc-0537c0b36d49", 0, "fd15d5e5-5c2d-4d4c-b281-1be6703b4d8b", "admin@xproject.com", true, null, null, false, null, null, "ADMIN@XPROJECT.COM", "AQAAAAEAACcQAAAAEGyH0O+Q21ixQL62tcE9OanXrSzibOCDQiB4WIA7lBl6kejSd/tKOjYVN6evkXZrzw==", null, false, "239734e8-deb4-489e-be48-4791062d1f66", false, "admin@xproject.com" },
+                    { "89f1ba74-fba0-4b32-b933-1ae347968b0a", 0, "0b40cf35-0d76-4f36-94ad-76bb2001a42e", "user@xproject.com", true, null, null, false, null, null, "USER@XPROJECT.COM", "AQAAAAEAACcQAAAAEJaSsi5ST2IPxDm/Mjm+SvZdYq6lxov/hTj4Asvbzh3v0hw0iHE4Y43VGFGIqpEUgA==", null, false, "17b45029-b131-4a73-b816-ca8221113827", false, "user@xproject.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -228,18 +228,18 @@ namespace XProject.Core.Migrations
                 columns: new[] { "Id", "FileTitle", "IconPath", "Order", "Title" },
                 values: new object[,]
                 {
-                    { 1, "aircraft", "/img/icons/aircraft.png", 1, "Літаки" },
-                    { 2, "helicopter", "/img/icons/helicopter.png", 2, "Гвинтокрили" },
-                    { 3, "drone", "/img/icons/drone.png", 3, "Дрони" },
-                    { 4, "anti-aircraft warfare", "/img/icons/anti-aircraft-warfare.png", 5, "ППО" },
-                    { 5, "cruise missiles", "/img/icons/cruise-missiles.png", 5, "Крилаті ракети" },
-                    { 6, "tank", "/img/icons/tank.png", 6, "Танки" },
-                    { 7, "APC", "/img/icons/apc.png", 7, "БТР" },
-                    { 8, "field artillery", "/img/icons/field-artillery.png", 8, "Артилерія" },
-                    { 9, "MLP", "/img/icons/mlr.png", 9, "РСЗВ" },
-                    { 10, "vehicles and fuel tanks", "/img/icons/vehicles-and-fuel-tanks.png", 10, "Техніка і цистерни з ПММ" },
-                    { 11, "naval ship", "/img/icons/naval-ship.png", 11, "Морські кораблі" },
-                    { 12, "special equipment", "/img/icons/special-equipment.png", 12, "Спец. обладнання" }
+                    { 1, "aircraft", "Images\\eq\\aircraft.png", 1, "Літаки" },
+                    { 2, "helicopter", "Images\\eq\\helicopter.png", 2, "Гвинтокрили" },
+                    { 3, "drone", "Images\\eq\\drone.png", 3, "Дрони" },
+                    { 4, "anti-aircraft warfare", "Images\\eq\\anti-aircraft-warfare.png", 5, "ППО" },
+                    { 5, "cruise missiles", "Images\\eq\\cruise-missiles.png", 5, "Крилаті ракети" },
+                    { 6, "tank", "Images\\eq\\tank.png", 6, "Танки" },
+                    { 7, "APC", "Images\\eq\\apc.png", 7, "БТР" },
+                    { 8, "field artillery", "Images\\eq\\field-artillery.png", 8, "Артилерія" },
+                    { 9, "MLP", "Images\\eq\\mlr.png", 9, "РСЗВ" },
+                    { 10, "vehicles and fuel tanks", "Images\\eq\\vehicles-and-fuel-tanks.png", 10, "Техніка і цистерни з ПММ" },
+                    { 11, "naval ship", "Images\\eq\\naval-ship.png", 11, "Морські кораблі" },
+                    { 12, "special equipment", "Images\\eq\\special-equipment.png", 12, "Спец. обладнання" }
                 });
 
             migrationBuilder.InsertData(
@@ -254,17 +254,17 @@ namespace XProject.Core.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "488471c8-6939-409f-a52b-f9b4020aeda9", "3aae988b-ba2b-4123-bfeb-45c283ddc33b" });
+                values: new object[] { "c9274690-fa05-46d8-8294-b6552b80549b", "65920599-67ec-45ec-a8fc-0537c0b36d49" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "488471c8-6939-409f-a52b-f9b4020aeda9", "74158a1f-837b-498f-b7aa-cdd34e99ca64" });
+                values: new object[] { "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54", "65920599-67ec-45ec-a8fc-0537c0b36d49" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "74158a1f-837b-498f-b7aa-cdd34e99ca64" });
+                values: new object[] { "ea5cfd40-13ff-44bd-bf7b-2937fb23fd54", "89f1ba74-fba0-4b32-b933-1ae347968b0a" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

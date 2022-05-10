@@ -28,6 +28,18 @@ namespace XProject.WebApp.Controllers
             return await _lossesRepository.GetDataAsync();
         }
 
+        public async Task<IEnumerable<DailyEquipmentLosses>> GetMiniChartData2(int id)
+        {
+            var data = await _lossesRepository.GetMiniChartDataAsync2(id);
+            return data;
+        }
+
+        public async Task<KeyValuePair<List<string>, List<int>>> GetMiniChartData(int id)
+        {
+            var data = await _lossesRepository.GetMiniChartDataAsync(id);
+            return data;
+        }
+
         public IActionResult Privacy()
         {
             return View();

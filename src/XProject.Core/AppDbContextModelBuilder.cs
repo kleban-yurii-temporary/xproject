@@ -86,7 +86,7 @@ namespace XProject.Core
                     Id = 1,
                     Title = "Літаки",
                     FileTitle = "aircraft",
-                    IconPath = "/img/icons/aircraft.png",
+                    IconPath = @"Images\eq\aircraft.png",
                     Order = 1
                 },
                 new EquipmentType
@@ -94,7 +94,7 @@ namespace XProject.Core
                     Id = 2,
                     Title = "Гвинтокрили",
                     FileTitle = "helicopter",
-                    IconPath = "/img/icons/helicopter.png",
+                    IconPath = @"Images\eq\helicopter.png",
                     Order = 2
                 },
                 new EquipmentType
@@ -102,7 +102,7 @@ namespace XProject.Core
                     Id = 3,
                     Title = "Дрони",
                     FileTitle = "drone",
-                    IconPath = "/img/icons/drone.png",
+                    IconPath = @"Images\eq\drone.png",
                     Order = 3
                 },
                 new EquipmentType
@@ -110,7 +110,7 @@ namespace XProject.Core
                     Id = 4,
                     Title = "ППО",
                     FileTitle = "anti-aircraft warfare",
-                    IconPath = "/img/icons/anti-aircraft-warfare.png",
+                    IconPath = @"Images\eq\anti-aircraft-warfare.png",
                     Order = 5
                 },
                 new EquipmentType
@@ -118,7 +118,7 @@ namespace XProject.Core
                     Id = 5,
                     Title = "Крилаті ракети",
                     FileTitle = "cruise missiles",
-                    IconPath = "/img/icons/cruise-missiles.png",
+                    IconPath = @"Images\eq\cruise-missiles.png",
                     Order = 5
                 },
                 new EquipmentType
@@ -126,7 +126,7 @@ namespace XProject.Core
                     Id = 6,
                     Title = "Танки",
                     FileTitle = "tank",
-                    IconPath = "/img/icons/tank.png",
+                    IconPath = @"Images\eq\tank.png",
                     Order = 6
                 },
                 new EquipmentType
@@ -134,7 +134,7 @@ namespace XProject.Core
                       Id = 7,
                       Title = "БТР",
                       FileTitle = "APC",
-                      IconPath = "/img/icons/apc.png",
+                      IconPath = @"Images\eq\apc.png",
                       Order = 7
                   },
                 new EquipmentType
@@ -142,7 +142,7 @@ namespace XProject.Core
                     Id = 8,
                     Title = "Артилерія",
                     FileTitle = "field artillery",
-                    IconPath = "/img/icons/field-artillery.png",
+                    IconPath = @"Images\eq\field-artillery.png",
                     Order = 8
                 },
                 new EquipmentType
@@ -150,7 +150,7 @@ namespace XProject.Core
                       Id = 9,
                       Title = "РСЗВ",
                       FileTitle = "MLP",
-                      IconPath = "/img/icons/mlr.png",
+                      IconPath = @"Images\eq\mlr.png",
                       Order = 9
                   },
                 new EquipmentType
@@ -158,7 +158,7 @@ namespace XProject.Core
                     Id = 10,
                     Title = "Техніка і цистерни з ПММ",
                     FileTitle = "vehicles and fuel tanks",
-                    IconPath = "/img/icons/vehicles-and-fuel-tanks.png",
+                    IconPath = @"Images\eq\vehicles-and-fuel-tanks.png",
                     Order = 10
                 },
                 new EquipmentType
@@ -166,7 +166,7 @@ namespace XProject.Core
                     Id = 11,
                     Title = "Морські кораблі",
                     FileTitle = "naval ship",
-                    IconPath = "/img/icons/naval-ship.png",
+                    IconPath = @"Images\eq\naval-ship.png",
                     Order = 11
                 },
                  new EquipmentType
@@ -174,7 +174,7 @@ namespace XProject.Core
                      Id = 12,
                      Title = "Спец. обладнання",
                      FileTitle = "special equipment",
-                     IconPath = "/img/icons/special-equipment.png",
+                     IconPath = @"Images\eq\special-equipment.png",
                      Order = 12
                  });
 
