@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XProject.Core;
 using XProject.Repositories.Dtos;
 using XProject.WebApp.Data;
 
@@ -21,16 +22,15 @@ namespace XProject.Repositories
             _ctx = ctx;
         }
 
-        public async Task<LossesReadDto> GetAsync(DateTime date)
+        public async Task<IEnumerable<DailyEquipmentLosses>> GetDataAsync()
         {
-            var data = _ctx.LossesEquipment.FirstOrDefault(x => x.Date.Date == date.Date);
-           
-            if(data == null)
-            {
-                data = await _ctx.LossesEquipment.FirstAsync(x => x.Date == _ctx.LossesEquipment.Max(x => x.Date));
-            }
+            var maxDate = _ctx.DailyLosses.Max(x => x.Date);
 
-            return _mapper.Map<LossesReadDto>(data);
+            var data = _ctx.DailyLosses.Include(x=> x.EquipmentType).Where(x=> x.Date == maxDate).ToList();  
+
+            return data;
         }
+
+
     }
 }

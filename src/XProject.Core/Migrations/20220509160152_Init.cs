@@ -51,29 +51,31 @@ namespace XProject.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LossesEquipment",
+                name: "EquipmentTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Day = table.Column<int>(type: "int", nullable: false),
-                    Aircraft = table.Column<int>(type: "int", nullable: false),
-                    Helicopter = table.Column<int>(type: "int", nullable: false),
-                    Tank = table.Column<int>(type: "int", nullable: false),
-                    APC = table.Column<int>(type: "int", nullable: false),
-                    Field_artillery = table.Column<int>(type: "int", nullable: false),
-                    MRL = table.Column<int>(type: "int", nullable: false),
-                    Military_auto = table.Column<int>(type: "int", nullable: false),
-                    Fuel_tank = table.Column<int>(type: "int", nullable: false),
-                    Drone = table.Column<int>(type: "int", nullable: false),
-                    Naval_ship = table.Column<int>(type: "int", nullable: false),
-                    Anti_aircraft_warfare = table.Column<int>(type: "int", nullable: false),
-                    Special_equipment = table.Column<int>(type: "int", nullable: false),
-                    Mobile_SRBM_system = table.Column<int>(type: "int", nullable: false)
+                    Order = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IconPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LossesEquipment", x => x.Id);
+                    table.PrimaryKey("PK_EquipmentTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Options",
+                columns: table => new
+                {
+                    Key = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Options", x => x.Key);
                 });
 
             migrationBuilder.CreateTable(
@@ -182,13 +184,34 @@ namespace XProject.Core.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DailyLosses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EquipmentTypeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DailyLosses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DailyLosses_EquipmentTypes_EquipmentTypeId",
+                        column: x => x.EquipmentTypeId,
+                        principalTable: "EquipmentTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0b0d56b1-6089-45d1-a416-915e31b83b9f", "0b0d56b1-6089-45d1-a416-915e31b83b9f", "User", "USER" },
-                    { "57a6481e-70b0-437b-8b41-2deb5f330975", "57a6481e-70b0-437b-8b41-2deb5f330975", "Admin", "ADMIN" }
+                    { "488471c8-6939-409f-a52b-f9b4020aeda9", "488471c8-6939-409f-a52b-f9b4020aeda9", "User", "USER" },
+                    { "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -196,24 +219,52 @@ namespace XProject.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "5a6856fb-4732-423f-8e92-38bb8abf3666", 0, "5aff00af-5316-4f0a-9940-5711a354c0ff", "admin@xproject.com", true, null, null, false, null, null, "ADMIN@XPROJECT.COM", "AQAAAAEAACcQAAAAEIrO6sVKRRY2+bB+0dNpWmJoc3kpG/fT9fMTqFmqaTGXndw4aTFgvNZDZ0N9PCx+9g==", null, false, "67b21f03-4843-488a-bc72-7221a516ce9e", false, "admin@xproject.com" },
-                    { "6631ca9f-3b61-43bd-ad2a-783d8ac9f4d5", 0, "bdd6243b-25f5-4382-adfd-b995d0c5d4a8", "user@xproject.com", true, null, null, false, null, null, "USER@XPROJECT.COM", "AQAAAAEAACcQAAAAELe07EVPv8eOroE1xBrqIHk07Pl4Eo/UZQ+z13yvJViBKZaPjSoc4TTTW4++MYWRow==", null, false, "c2ded625-5f4f-4644-b0b9-a4d94e8ab557", false, "user@xproject.com" }
+                    { "3aae988b-ba2b-4123-bfeb-45c283ddc33b", 0, "b21719c0-493b-4804-8519-07ad6ff85ea6", "user@xproject.com", true, null, null, false, null, null, "USER@XPROJECT.COM", "AQAAAAEAACcQAAAAEDCM8zYjTM/yIJvU8Oo9LDSW2Y3lFmOnge3ORNOb7WZz14BIjI4wSL8a8dHMuT984Q==", null, false, "69284d0a-0bbe-46fa-afa5-3dc28d3ffc51", false, "user@xproject.com" },
+                    { "74158a1f-837b-498f-b7aa-cdd34e99ca64", 0, "1307563d-1e71-4bcc-aed0-67448f4ca400", "admin@xproject.com", true, null, null, false, null, null, "ADMIN@XPROJECT.COM", "AQAAAAEAACcQAAAAEANuCmj//tCbH/ov6GdMQ3QwYpvgboxlehD4UH29tQbkuPlUMw2I2W9N0kihaUKBJg==", null, false, "ff31d3f8-1f10-48ad-9469-0b9b13f445fd", false, "admin@xproject.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EquipmentTypes",
+                columns: new[] { "Id", "FileTitle", "IconPath", "Order", "Title" },
+                values: new object[,]
+                {
+                    { 1, "aircraft", "/img/icons/aircraft.png", 1, "Літаки" },
+                    { 2, "helicopter", "/img/icons/helicopter.png", 2, "Гвинтокрили" },
+                    { 3, "drone", "/img/icons/drone.png", 3, "Дрони" },
+                    { 4, "anti-aircraft warfare", "/img/icons/anti-aircraft-warfare.png", 5, "ППО" },
+                    { 5, "cruise missiles", "/img/icons/cruise-missiles.png", 5, "Крилаті ракети" },
+                    { 6, "tank", "/img/icons/tank.png", 6, "Танки" },
+                    { 7, "APC", "/img/icons/apc.png", 7, "БТР" },
+                    { 8, "field artillery", "/img/icons/field-artillery.png", 8, "Артилерія" },
+                    { 9, "MLP", "/img/icons/mlr.png", 9, "РСЗВ" },
+                    { 10, "vehicles and fuel tanks", "/img/icons/vehicles-and-fuel-tanks.png", 10, "Техніка і цистерни з ПММ" },
+                    { 11, "naval ship", "/img/icons/naval-ship.png", 11, "Морські кораблі" },
+                    { 12, "special equipment", "/img/icons/special-equipment.png", 12, "Спец. обладнання" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Options",
+                columns: new[] { "Key", "Value" },
+                values: new object[,]
+                {
+                    { "last_update", "1900.01.01" },
+                    { "start_date", "24.02.2022" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "0b0d56b1-6089-45d1-a416-915e31b83b9f", "5a6856fb-4732-423f-8e92-38bb8abf3666" });
+                values: new object[] { "488471c8-6939-409f-a52b-f9b4020aeda9", "3aae988b-ba2b-4123-bfeb-45c283ddc33b" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "57a6481e-70b0-437b-8b41-2deb5f330975", "5a6856fb-4732-423f-8e92-38bb8abf3666" });
+                values: new object[] { "488471c8-6939-409f-a52b-f9b4020aeda9", "74158a1f-837b-498f-b7aa-cdd34e99ca64" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "0b0d56b1-6089-45d1-a416-915e31b83b9f", "6631ca9f-3b61-43bd-ad2a-783d8ac9f4d5" });
+                values: new object[] { "fecb325f-b7c9-4523-a19e-98e6e449e4f6", "74158a1f-837b-498f-b7aa-cdd34e99ca64" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -253,6 +304,11 @@ namespace XProject.Core.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyLosses_EquipmentTypeId",
+                table: "DailyLosses",
+                column: "EquipmentTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -273,13 +329,19 @@ namespace XProject.Core.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "LossesEquipment");
+                name: "DailyLosses");
+
+            migrationBuilder.DropTable(
+                name: "Options");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "EquipmentTypes");
         }
     }
 }

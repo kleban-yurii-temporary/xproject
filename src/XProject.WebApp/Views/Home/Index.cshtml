@@ -1,46 +1,66 @@
 ﻿@using XProject.Repositories.Dtos
-@model LossesReadDto
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
+<div class="row" id="data-row"></div>
 <div class="row">
 
-    <div class="col-lg-2 mb-5">
-        <div class="card h-100 shadow border-0">
-            <div class="card-body p-4">
-                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Дрони</div>
-                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Drone</h5></a>               
-            </div>            
-        </div>
-    </div>
-
-     <div class="col-lg-2 mb-5">
-        <div class="card h-100 shadow border-0">
-            <div class="card-body p-4">
-                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Літаки</div>
-                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Aircraft</h5></a>               
-            </div>            
-        </div>
-    </div>
-
-     <div class="col-lg-2 mb-5">
-        <div class="card h-100 shadow border-0">
-            <div class="card-body p-4">
-                <div class="badge bg-primary bg-gradient rounded-pill mb-2">ППО</div>
-                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Anti_aircraft_warfare</h5></a>               
-            </div>            
-        </div>
-    </div>
-
-    <div class="col-lg-2 mb-5">
-        <div class="card h-100 shadow border-0">
-            <div class="card-body p-4">
-                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Гвинтокрили</div>
-                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@Model.Helicopter</h5></a>               
-            </div>            
+    <div class="col-lg-2 mb-5 item-card">
+        <div class="card h-100 shadow">
+            <div class="card-body">
+                <div class="num-block">
+                    <img src="/img/icons/no-photo.png" alt="" />
+                    <h5>155</h5>
+                    <h6 class="text-danger">+5</h6>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="float-end"><i class="bi bi-arrow-right"></i></a>
+                <span>Танки</span>
+            </div>
         </div>
     </div>
 
 </div>
+
+@section Scripts {
+
+<script src="/js/index.js"></script>
+
+}
+
+<style>
+    .item-card {
+    }
+
+        .item-card .num-block {
+            position: relative;
+            height: 64px;
+        }
+
+            .item-card .num-block img {
+                height: 64px;
+                float: left;
+            }
+
+            .item-card .num-block h5 {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 27px;
+            }
+
+            .item-card .num-block h6 {
+                position: absolute;
+                top: 35px;
+                right: 0;
+                font-size: 22px;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                padding: 3px 7px;
+            }
+
+</style>
+

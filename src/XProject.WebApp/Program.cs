@@ -5,6 +5,7 @@ using XProject.WebApp.Data;
 using XProject.Repositories;
 using AutoMapper;
 using XProject.Repositories.Mapper;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,10 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
 .AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<DataInitRepository>();
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddScoped<UpdateRepository>();
 builder.Services.AddScoped<LossesRepository>();
 builder.Services.AddScoped<UserRoleRepository>();
 builder.Services.AddScoped<UserManager<AppUser>>();
@@ -63,6 +67,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",

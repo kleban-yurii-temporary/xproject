@@ -12,7 +12,7 @@ using XProject.WebApp.Data;
 namespace XProject.Core.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220503101012_Init")]
+    [Migration("20220509160152_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,15 +53,15 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "57a6481e-70b0-437b-8b41-2deb5f330975",
-                            ConcurrencyStamp = "57a6481e-70b0-437b-8b41-2deb5f330975",
+                            Id = "fecb325f-b7c9-4523-a19e-98e6e449e4f6",
+                            ConcurrencyStamp = "fecb325f-b7c9-4523-a19e-98e6e449e4f6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0b0d56b1-6089-45d1-a416-915e31b83b9f",
-                            ConcurrencyStamp = "0b0d56b1-6089-45d1-a416-915e31b83b9f",
+                            Id = "488471c8-6939-409f-a52b-f9b4020aeda9",
+                            ConcurrencyStamp = "488471c8-6939-409f-a52b-f9b4020aeda9",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -158,18 +158,18 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5a6856fb-4732-423f-8e92-38bb8abf3666",
-                            RoleId = "57a6481e-70b0-437b-8b41-2deb5f330975"
+                            UserId = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
+                            RoleId = "fecb325f-b7c9-4523-a19e-98e6e449e4f6"
                         },
                         new
                         {
-                            UserId = "5a6856fb-4732-423f-8e92-38bb8abf3666",
-                            RoleId = "0b0d56b1-6089-45d1-a416-915e31b83b9f"
+                            UserId = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
+                            RoleId = "488471c8-6939-409f-a52b-f9b4020aeda9"
                         },
                         new
                         {
-                            UserId = "6631ca9f-3b61-43bd-ad2a-783d8ac9f4d5",
-                            RoleId = "0b0d56b1-6089-45d1-a416-915e31b83b9f"
+                            UserId = "3aae988b-ba2b-4123-bfeb-45c283ddc33b",
+                            RoleId = "488471c8-6939-409f-a52b-f9b4020aeda9"
                         });
                 });
 
@@ -267,37 +267,37 @@ namespace XProject.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5a6856fb-4732-423f-8e92-38bb8abf3666",
+                            Id = "74158a1f-837b-498f-b7aa-cdd34e99ca64",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5aff00af-5316-4f0a-9940-5711a354c0ff",
+                            ConcurrencyStamp = "1307563d-1e71-4bcc-aed0-67448f4ca400",
                             Email = "admin@xproject.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN@XPROJECT.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIrO6sVKRRY2+bB+0dNpWmJoc3kpG/fT9fMTqFmqaTGXndw4aTFgvNZDZ0N9PCx+9g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEANuCmj//tCbH/ov6GdMQ3QwYpvgboxlehD4UH29tQbkuPlUMw2I2W9N0kihaUKBJg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "67b21f03-4843-488a-bc72-7221a516ce9e",
+                            SecurityStamp = "ff31d3f8-1f10-48ad-9469-0b9b13f445fd",
                             TwoFactorEnabled = false,
                             UserName = "admin@xproject.com"
                         },
                         new
                         {
-                            Id = "6631ca9f-3b61-43bd-ad2a-783d8ac9f4d5",
+                            Id = "3aae988b-ba2b-4123-bfeb-45c283ddc33b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bdd6243b-25f5-4382-adfd-b995d0c5d4a8",
+                            ConcurrencyStamp = "b21719c0-493b-4804-8519-07ad6ff85ea6",
                             Email = "user@xproject.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER@XPROJECT.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELe07EVPv8eOroE1xBrqIHk07Pl4Eo/UZQ+z13yvJViBKZaPjSoc4TTTW4++MYWRow==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDCM8zYjTM/yIJvU8Oo9LDSW2Y3lFmOnge3ORNOb7WZz14BIjI4wSL8a8dHMuT984Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c2ded625-5f4f-4644-b0b9-a4d94e8ab557",
+                            SecurityStamp = "69284d0a-0bbe-46fa-afa5-3dc28d3ffc51",
                             TwoFactorEnabled = false,
                             UserName = "user@xproject.com"
                         });
                 });
 
-            modelBuilder.Entity("XProject.Core.LossesEquipmentDaily", b =>
+            modelBuilder.Entity("XProject.Core.DailyEquipmentLosses", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -305,51 +305,168 @@ namespace XProject.Core.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("APC")
+                    b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("Aircraft")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("Anti_aircraft_warfare")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Day")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Drone")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Field_artillery")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Fuel_tank")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Helicopter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MRL")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Military_auto")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Mobile_SRBM_system")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Naval_ship")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Special_equipment")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Tank")
+                    b.Property<int>("EquipmentTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("LossesEquipment");
+                    b.HasIndex("EquipmentTypeId");
+
+                    b.ToTable("DailyLosses");
+                });
+
+            modelBuilder.Entity("XProject.Core.EquipmentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FileTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IconPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EquipmentTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FileTitle = "aircraft",
+                            IconPath = "/img/icons/aircraft.png",
+                            Order = 1,
+                            Title = "Літаки"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FileTitle = "helicopter",
+                            IconPath = "/img/icons/helicopter.png",
+                            Order = 2,
+                            Title = "Гвинтокрили"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FileTitle = "drone",
+                            IconPath = "/img/icons/drone.png",
+                            Order = 3,
+                            Title = "Дрони"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            FileTitle = "anti-aircraft warfare",
+                            IconPath = "/img/icons/anti-aircraft-warfare.png",
+                            Order = 5,
+                            Title = "ППО"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            FileTitle = "cruise missiles",
+                            IconPath = "/img/icons/cruise-missiles.png",
+                            Order = 5,
+                            Title = "Крилаті ракети"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            FileTitle = "tank",
+                            IconPath = "/img/icons/tank.png",
+                            Order = 6,
+                            Title = "Танки"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            FileTitle = "APC",
+                            IconPath = "/img/icons/apc.png",
+                            Order = 7,
+                            Title = "БТР"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            FileTitle = "field artillery",
+                            IconPath = "/img/icons/field-artillery.png",
+                            Order = 8,
+                            Title = "Артилерія"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            FileTitle = "MLP",
+                            IconPath = "/img/icons/mlr.png",
+                            Order = 9,
+                            Title = "РСЗВ"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            FileTitle = "vehicles and fuel tanks",
+                            IconPath = "/img/icons/vehicles-and-fuel-tanks.png",
+                            Order = 10,
+                            Title = "Техніка і цистерни з ПММ"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            FileTitle = "naval ship",
+                            IconPath = "/img/icons/naval-ship.png",
+                            Order = 11,
+                            Title = "Морські кораблі"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            FileTitle = "special equipment",
+                            IconPath = "/img/icons/special-equipment.png",
+                            Order = 12,
+                            Title = "Спец. обладнання"
+                        });
+                });
+
+            modelBuilder.Entity("XProject.Core.Option", b =>
+                {
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Key");
+
+                    b.ToTable("Options");
+
+                    b.HasData(
+                        new
+                        {
+                            Key = "start_date",
+                            Value = "24.02.2022"
+                        },
+                        new
+                        {
+                            Key = "last_update",
+                            Value = "1900.01.01"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -401,6 +518,22 @@ namespace XProject.Core.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("XProject.Core.DailyEquipmentLosses", b =>
+                {
+                    b.HasOne("XProject.Core.EquipmentType", "EquipmentType")
+                        .WithMany("DailyEquipmentLosses")
+                        .HasForeignKey("EquipmentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EquipmentType");
+                });
+
+            modelBuilder.Entity("XProject.Core.EquipmentType", b =>
+                {
+                    b.Navigation("DailyEquipmentLosses");
                 });
 #pragma warning restore 612, 618
         }

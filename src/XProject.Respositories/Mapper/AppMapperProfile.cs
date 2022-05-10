@@ -13,8 +13,8 @@ namespace XProject.Repositories.Mapper
     {
         public AppMapperProfile()
         {
-            CreateMap<LossesReadDto, LossesEquipmentDaily>()
-                .AddTransform<int?>(num => num ?? 0).ReverseMap();
+           // CreateMap<LossesReadDto, LossesEquipmentDaily>()
+             //   .AddTransform<int?>(num => num ?? 0).ReverseMap();
         }       
     }
 }

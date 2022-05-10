@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using XProject.Core;
 using XProject.Repositories;
 using XProject.WebApp.Models;
 
@@ -17,9 +18,14 @@ namespace XProject.WebApp.Controllers
 
         }
 
-        public async Task<IActionResult> Index(string date = "")
+        public IActionResult Index()
         {
-            return View(await _lossesRepository.GetAsync(DateTime.Now));
+            return View();
+        }
+
+        public async Task<IEnumerable<DailyEquipmentLosses>> GetData()
+        {
+            return await _lossesRepository.GetDataAsync();
         }
 
         public IActionResult Privacy()

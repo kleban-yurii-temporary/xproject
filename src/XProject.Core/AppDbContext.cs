@@ -17,6 +17,8 @@ namespace XProject.WebApp.Data
             base.OnModelCreating(builder);
         }
 
-        public DbSet<LossesEquipmentDaily> LossesEquipment { get; set; }
+        public DbSet<DailyEquipmentLosses> DailyLosses { get; set; }
+        public DbSet<EquipmentType> EquipmentTypes { get; set; }
+        public DbSet<Option> Options { get; set; }
     }
 }
