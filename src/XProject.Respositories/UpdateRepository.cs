@@ -133,7 +133,7 @@ namespace XProject.Repositories
             }
             else
             {
-                _ctx.Options.First(x => x.Key == "latest_update").Value = DateTime.Now.ToString("dd.MM.yyyy");
+                _ctx.Options.First(x => x.Key == "last_update").Value = DateTime.Now.ToString("dd.MM.yyyy");
                 await _ctx.SaveChangesAsync();
 
             }
