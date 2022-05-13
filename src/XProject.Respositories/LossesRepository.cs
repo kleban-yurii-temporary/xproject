@@ -37,6 +37,11 @@ namespace XProject.Repositories
             return data;
         }
 
+        public async Task<string> GetMaxDateAsStringAsync()
+        {
+            return (await _ctx.DailyLosses.MaxAsync(x => x.Date)).ToString("dd.MM.yyyy");
+        }
+
         public async Task<KeyValuePair<List<string>, List<int>>> GetMiniChartDataAsync(int id)
         {           
             var eqt = await _ctx.DailyLosses.Where(x=> x.EquipmentType.Id == id)

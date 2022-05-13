@@ -14,7 +14,7 @@ function updateData() {
           
             for (let i = 0; i < result.length; i++) {
 
-                var contentItem = "<div class='col-md-2 mb-5 item-card'><div class='card h-100 shadow'>";
+                var contentItem = "<div class='col-md-4 col-lg-2 col-6 col-sm-6 mb-5 item-card'><div class='card h-100 shadow'>";
 
                 contentItem += "<div class='card-body'><canvas id='chart" + result[i].id + "'></canvas><div class='num-block'>"
                     + "<img src='eq/image/" + result[i].equipmentType.id + "' alt='' />"

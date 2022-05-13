@@ -10,7 +10,6 @@ namespace XProject.WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly LossesRepository _lossesRepository;
-
         public HomeController(ILogger<HomeController> logger, LossesRepository lossesRepository)
         {
             _logger = logger;
@@ -18,8 +17,9 @@ namespace XProject.WebApp.Controllers
 
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            ViewBag.Date = await _lossesRepository.GetMaxDateAsStringAsync();
             return View();
         }
 
