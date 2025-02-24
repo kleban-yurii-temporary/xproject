@@ -15,7 +15,6 @@ namespace XProject.Repositories
     {
         private readonly AppDbContext _ctx;
         private readonly IMapper _mapper;
-
         public LossesRepository(AppDbContext ctx, IMapper mapper)
         {
             _mapper = mapper;
@@ -26,10 +25,10 @@ namespace XProject.Repositories
         {
             var maxDate = _ctx.DailyLosses.Max(x => x.Date);
 
-            var data = _ctx.DailyLosses.Include(x=> x.EquipmentType).Where(x=> x.Date == maxDate).ToList();
+            var data = _ctx.DailyLosses.Include(x => x.EquipmentType).Where(x => x.Date == maxDate).ToList();
             var dataBefore = _ctx.DailyLosses.Include(x => x.EquipmentType).Where(x => x.Date == maxDate.AddDays(-1)).ToList();
 
-            for(int i = 0; i < data.Count; i++)
+            for (int i = 0; i < data.Count; i++)
             {
                 data[i].CountPlus = data[i].Count - dataBefore[i].Count;
             }
@@ -39,18 +38,20 @@ namespace XProject.Repositories
 
         public async Task<string> GetMaxDateAsStringAsync()
         {
-            return (await _ctx.DailyLosses.MaxAsync(x => x.Date)).ToString("dd.MM.yyyy");
+            if (_ctx.DailyLosses.Any())
+                return (await _ctx.DailyLosses.MaxAsync(x => x.Date)).ToString("dd.MM.yyyy");
+            return DateTime.Now.ToString("dd.MM.yyyy");
         }
 
         public async Task<KeyValuePair<List<string>, List<int>>> GetMiniChartDataAsync(int id)
-        {           
-            var eqt = await _ctx.DailyLosses.Where(x=> x.EquipmentType.Id == id)
-                .OrderByDescending(x=> x.Date).Take(14)
-                .OrderBy(x=> x.Date).ToListAsync();
+        {
+            var eqt = await _ctx.DailyLosses.Where(x => x.EquipmentType.Id == id)
+                .OrderByDescending(x => x.Date).Take(14)
+                .OrderBy(x => x.Date).ToListAsync();
 
             var data = new KeyValuePair<List<string>, List<int>>(
-                eqt.Select(x=> "d" + x.Date.ToString("ddMMyyyy")).ToList(),
-                eqt.Select(x=> x.Count).ToList());
+                eqt.Select(x => "d" + x.Date.ToString("ddMMyyyy")).ToList(),
+                eqt.Select(x => x.Count).ToList());
 
             return data;
         }

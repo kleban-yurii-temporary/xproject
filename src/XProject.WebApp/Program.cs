@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<AppUser>(options =>
@@ -25,6 +26,7 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.Password.RequiredLength = 5;
 }).AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>();
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -36,6 +38,7 @@ builder.Services.AddScoped<EqRepository>();
 builder.Services.AddScoped<UserRoleRepository>();
 builder.Services.AddScoped<UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
+
 /*
 var mapperConfig = new MapperConfiguration(c => {
     c.AddProfile<AppMapperProfile>();
