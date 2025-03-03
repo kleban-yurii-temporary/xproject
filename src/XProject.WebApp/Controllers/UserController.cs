@@ -60,7 +60,7 @@ namespace XProject.WebApp.Controllers
         [HttpPost]
         public async Task<int> CheckUser(string id)
         {
-            return await _userRoleRepository.IsConfirmed(id);
+            return 0;// await _userRoleRepository.IsConfirmed(id);
         }
 
         [HttpDelete]

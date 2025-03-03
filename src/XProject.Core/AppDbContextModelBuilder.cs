@@ -10,6 +10,10 @@ namespace XProject.Core
 {
     public static class AppDbContextModelBuilder
     {
+        private static void _seedUsers(ModelBuilder builder)
+        {
+
+        }
         public static void Seed(this ModelBuilder builder)
         {
             string ADMIN_ROLE_ID = Guid.NewGuid().ToString();
